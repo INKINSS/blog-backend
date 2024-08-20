@@ -3,8 +3,12 @@ const app = express();
 const path = require('path');
 const router = require('./routes/routes');
 const ejs = require('ejs');
+const conection = require('./config/db');
 
 const PORT = 3000;
+
+//conection
+conection()
 
 // Set view engine
 
