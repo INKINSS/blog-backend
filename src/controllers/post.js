@@ -1,6 +1,6 @@
 const BlogPost = require('../models/BlogPost')
 
-const CreatePost = async (req, res) => {
+const createPost = async (req, res) => {
     try {
         const { title, body } = req.body
         const newPost = new BlogPost({ title, body })
@@ -11,6 +11,16 @@ const CreatePost = async (req, res) => {
     }
 }
 
+const getAllPost = async (req,res) => {
+    try {
+        const posts = await BlogPost.find()
+        res.status(200).json(posts)
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' })
+    }
+}
+
 module.exports = {
-    CreatePost
+    createPost,
+    getAllPost
 }

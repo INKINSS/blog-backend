@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { CreatePost } = require('../controllers/post')
+const { createPost, getAllPost } = require('../controllers/post')
 const { Principal, About, Contact, Post, } = require('../controllers/controller');
 const router = Router()
 
@@ -11,6 +11,7 @@ router.get('/contact', Contact);
 router.get('/post', Post)
 
 //api
-router.post('/createPost', CreatePost)
+router.post('/createPost', createPost)
+router.get('/getAllPost', getAllPost)
 
 module.exports = router;
