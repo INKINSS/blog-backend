@@ -1,9 +1,16 @@
-const mongoose = require('mongoose')
-const { Schema } = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const blogPostSchema = new Schema({
-    title: String,
-    body: String,
+    title: {
+        type: String,
+        required: true
+    },
+    body: {
+        type: String,
+        required: true
+    }
 })
 
-const BlogPost = mongoose.model('BlogPost', blogPostSchema)
+const BlogPost = model('BlogPost', blogPostSchema)
+
+module.exports = BlogPost
